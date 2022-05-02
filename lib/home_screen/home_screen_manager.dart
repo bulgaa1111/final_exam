@@ -1,23 +1,14 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
-class homeScreenManager {
-  final iconNotifier = ValueNotifier<MyIcon>(MyIcon.house);
+class HomeScreenManager {
+  final colorNotifier = ValueNotifier<Color>(Colors.white);
 
-  void chooseHouse() {
-    iconNotifier.value = MyIcon.house;
+  void chooseRed() {
+    colorNotifier.value = Colors.red;
   }
 
-  void chooseSun() {
-    iconNotifier.value = MyIcon.sun;
+  void chooseBlue() {
+    colorNotifier.value = Colors.blue;
   }
-
-  void chooseCloud() {
-    iconNotifier.value = MyIcon.cloud;
-  }
-}
-
-enum MyIcon {
-  house,
-  sun,
-  cloud,
 }

@@ -3,7 +3,7 @@ import 'package:example/home_screen/home_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  setUpGetIt();
+  setupGetIt();
   runApp(const MyApp());
 }
 
