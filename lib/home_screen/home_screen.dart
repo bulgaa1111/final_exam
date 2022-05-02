@@ -10,46 +10,36 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  var myText = 'hello';
-  var isHello = true;
-  // final manager = getIt<HomeScreenManager>();
+  final manager = getIt<HomeScreenManager>();
 
   @override
   Widget build(BuildContext context) {
-    // return ValueListenableBuilder<Color>(
-    //     valueListenable: manager.colorNotifier,
-    //     builder: (context, color, child) {
-    return Scaffold(
-      // backgroundColor: color,
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(myText),
-            ElevatedButton(
-              child: Text('change'),
-              onPressed: () {
-                // manager.chooseRed();
-                if (isHello) {
-                  myText = 'bye';
-                  isHello = false;
-                } else {
-                  myText = 'hello';
-                  isHello = true;
-                }
-                setState(() {});
-              },
+    return ValueListenableBuilder<Color>(
+        valueListenable: manager.colorNotifier,
+        builder: (context, color, child) {
+          return Scaffold(
+            backgroundColor: color,
+            body: Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  ElevatedButton(
+                    onPressed: () {
+                      manager.chooseRed();
+                    },
+                    child: Text('Red'),
+                  ),
+                  SizedBox(height: 20),
+                  ElevatedButton(
+                    onPressed: () {
+                      manager.chooseBlue();
+                    },
+                    child: Text('Blue'),
+                  ),
+                ],
+              ),
             ),
-            // SizedBox(height: 20),
-            // ElevatedButton(
-            //   onPressed: () {
-            //     manager.chooseBlue();
-            //   },
-            //   child: Text('change'),
-            // ),
-          ],
-        ),
-      ),
-    );
+          );
+        });
   }
 }
